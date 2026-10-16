@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English App</title>
+  </head>
+  <body>
+  <main class="contenedor">
+    <h1>Mis Flashcards</h1>
+
+    <div class="tarjeta" id="tarjeta">
+      <div class="tarjeta-inner">
+
+      <div class="cara cara-frente">
+        <p id="palabra">—</p>
+        <button id="btnAudio" class="audio">🔊</button>
+      </div>
+
+      <div class="cara cara-reverso">
+        <p id="traduccion"></p>
+        <p id="ejemplo"></p>
+      </div>
+
+      </div>
+    </div>
+
+    <div class="botones">
+      <button id="btnVoltear">Voltear</button>
+      <button id="btnSiguiente">Siguiente</button>
+    </div>
+
+    <div class="practica">
+      <input type="text" id="miFrase" placeholder="Escribe una frase con esta palabra...">
+      <button id="btnGuardar">Guardar frase</button>
+      <ul id="listaFrases"></ul>
+    </div>
+  </main>
+    
+    <script src="./script.js"></script>
+  </body>
+</html>
