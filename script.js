@@ -34,6 +34,27 @@ const vocabulario = [
   { en: 'directory', es: 'directorio', ejemplo: "I'm building a list of directories to get listed in." },
   { en: 'qualified', es: 'cualificado / que cumple los requisitos', ejemplo: "The search didn't produce qualified prospects." },
   { en: 'to surface', es: 'hacer aparecer / sacar a la luz', ejemplo: "The process kept surfacing sites that failed the link check." },
+    // --- Entrevistas ---
+  { en: 'Thank you for having me', es: 'Gracias por recibirme / por la oportunidad', ejemplo: "Thank you for having me — I'm glad to be here." },
+  { en: 'Could you repeat the question?', es: '¿Podría repetir la pregunta?', ejemplo: "Sorry, could you repeat the question, please?" },
+  { en: 'Let me think about that for a second', es: 'Déjame pensarlo un momento', ejemplo: "That's a great question — let me think about that for a second." },
+  { en: 'I have experience with...', es: 'Tengo experiencia con/en...', ejemplo: "I have experience with SEO and link building." },
+  { en: "I'd like to ask about...", es: 'Me gustaría preguntar sobre...', ejemplo: "I'd like to ask about the team I'd be working with." },
+
+  // --- Problemas de conexión / videollamadas ---
+  { en: 'Can you hear me?', es: '¿Me escuchas / me oyen?', ejemplo: "Can you hear me okay now?" },
+  { en: "The Wi-Fi is not working", es: 'El wifi no funciona', ejemplo: "Give me a second — the Wi-Fi is not working." },
+  { en: "You're breaking up", es: 'Se te corta (la señal)', ejemplo: "Sorry, you're breaking up — could you say that again?" },
+  { en: "I think you're on mute", es: 'Creo que tienes el micrófono silenciado', ejemplo: "I think you're on mute — I can't hear you." },
+  { en: 'My internet is unstable', es: 'Mi internet está inestable', ejemplo: "My internet is a bit unstable today, sorry." },
+  { en: 'Let me reconnect', es: 'Déjame reconectarme', ejemplo: "The call is lagging — let me reconnect." },
+  { en: 'Can you see my screen?', es: '¿Ves mi pantalla?', ejemplo: "I'm sharing now — can you see my screen?" },
+
+  // --- Día a día / básicas ---
+  { en: 'Could you say that again, please?', es: '¿Podrías repetir, por favor?', ejemplo: "Sorry, could you say that again, please?" },
+  { en: 'How do you say ... in English?', es: '¿Cómo se dice... en inglés?', ejemplo: "How do you say 'propuesta' in English?" },
+  { en: "I'll get back to you", es: 'Te respondo luego / te aviso', ejemplo: "Let me check and I'll get back to you." },
+  { en: 'Give me a moment', es: 'Dame un momento', ejemplo: "Give me a moment, please." },
 ];
 
 // 2. AGARRAR los elementos del HTML
