@@ -3,50 +3,55 @@
   <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mis Flashcards</title>
   </head>
   <body>
-  <main class="contenedor">
-    <h1>Mis Flashcards</h1>
+<main class="contenedor">
+  <h1>Mis Flashcards</h1>
 
-    <div class="filtros">
-      <button class="filtro-btn activo" data-cat="todas">Todas</button>
-      <button class="filtro-btn" data-cat="trabajo">Trabajo</button>
-      <button class="filtro-btn" data-cat="entrevista">Entrevista</button>
-      <button class="filtro-btn" data-cat="llamada">Llamada</button>
-      <button class="filtro-btn" data-cat="diario">Día a día</button>
-    </div>
+  <div class="filtros">
+    <button class="filtro-btn activo" data-cat="todas">Todas</button>
+    <button class="filtro-btn" data-cat="trabajo">Trabajo</button>
+    <button class="filtro-btn" data-cat="entrevista">Entrevista</button>
+    <button class="filtro-btn" data-cat="llamada">Llamada</button>
+    <button class="filtro-btn" data-cat="diario">Día a día</button>
+  </div>
 
-    <div class="tarjeta" id="tarjeta">
-      <div class="tarjeta-inner">
-
-      <div class="cara cara-frente">
-        <p id="palabra">—</p>
-        <button id="btnAudio" class="audio">🔊</button>
+  <div class="columnas">
+    <div class="col-estudio">
+      <div class="tarjeta" id="tarjeta">
+        <div class="tarjeta-inner">
+          <div class="cara cara-frente">
+            <p id="palabra">—</p>
+            <button id="btnAudio" class="audio">🔊</button>
+          </div>
+          <div class="cara cara-reverso">
+            <p id="traduccion"></p>
+            <p id="ejemplo"></p>
+          </div>
+        </div>
       </div>
-
-      <div class="cara cara-reverso">
-        <p id="traduccion"></p>
-        <p id="ejemplo"></p>
-      </div>
-
+      <div class="botones">
+        <button id="btnVoltear">Voltear</button>
+        <button id="btnSiguiente">Siguiente</button>
       </div>
     </div>
 
-    <div class="botones">
-      <button id="btnVoltear">Voltear</button>
-      <button id="btnSiguiente">Siguiente</button>
+    <div class="col-practica">
+      <div class="practica">
+        <input type="text" id="miFrase" placeholder="Escribe una frase con esta palabra...">
+        <button id="btnCorregir">Corregir</button>
+        <button id="btnGuardar">Guardar frase</button>
+        <p id="resultadoCorreccion"></p>
+        <ul id="listaFrases"></ul>
+      </div>
     </div>
-
-    <div class="practica">
-      <input type="text" id="miFrase" placeholder="Escribe una frase con esta palabra...">
-      <button id="btnCorregir">Corregir</button>
-      <button id="btnGuardar">Guardar frase</button>
-      <p id="resultadoCorreccion"></p>
-      <ul id="listaFrases"></ul>
-    </div>
-  </main>
+  </div>
+</main>
     
     <script src="./script.js"></script>
   </body>
