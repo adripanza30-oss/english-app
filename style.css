@@ -146,3 +146,19 @@ input {
   font-weight: bold;
   cursor: pointer;
 }
+
+#listaFrases {
+  list-style: none; 
+  padding: 0;
+  margin: 0.5rem 0 0;
+  width: 100%;
+}
+
+#listaFrases li {
+  background: rgba(255, 255, 255, 0.9);
+  color: #1F3D34;  
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+}
