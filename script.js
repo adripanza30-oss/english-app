@@ -114,10 +114,22 @@ let frasesGuardadas = JSON.parse(localStorage.getItem('misFrases')) || [];
 
 // 2. Función para dibujar todas las frases en pantalla
 function mostrarFrases() {
-  listaFrases.innerHTML = ''; // limpia la lista antes de redibujar
-  frasesGuardadas.forEach(function(frase) {
+  listaFrases.innerHTML = ''; // limpia antes de redibujar
+  frasesGuardadas.forEach(function(frase, indice) {
     const item = document.createElement('li');
     item.textContent = frase;
+
+    // botón de borrar
+    const btnBorrar = document.createElement('button');
+    btnBorrar.textContent = '✕';
+    btnBorrar.className = 'borrar-frase';
+    btnBorrar.addEventListener('click', function() {
+      frasesGuardadas.splice(indice, 1); // quita 1 frase en esa posición
+      localStorage.setItem('misFrases', JSON.stringify(frasesGuardadas)); // actualiza el guardado
+      mostrarFrases(); // redibuja la lista
+    });
+
+    item.appendChild(btnBorrar);
     listaFrases.appendChild(item);
   });
 }
@@ -161,4 +173,37 @@ filtroBtns.forEach(function(boton) {
     // 3. mostrar una palabra de la nueva categoría
     mostrarPalabra();
   });
+});
+
+// CORREGIR con LanguageTool
+const btnCorregir = document.getElementById('btnCorregir');
+const resultadoCorreccion = document.getElementById('resultadoCorreccion');
+
+btnCorregir.addEventListener('click', async function() {
+  const texto = miFrase.value.trim();
+  if (texto === '') return;
+
+  resultadoCorreccion.textContent = 'Revisando...';
+
+  try {
+    const respuesta = await fetch('https://api.languagetool.org/v2/check', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: 'text=' + encodeURIComponent(texto) + '&language=en-US'
+    });
+    const datos = await respuesta.json();
+
+    if (datos.matches.length === 0) {
+      resultadoCorreccion.textContent = '✓ ¡Sin errores! Bien escrito.';
+    } else {
+      let mensaje = `Encontré ${datos.matches.length} sugerencia(s):\n`;
+      datos.matches.forEach(function(m) {
+        const sugerencia = m.replacements[0] ? m.replacements[0].value : '(sin sugerencia)';
+        mensaje += `• ${m.message} → "${sugerencia}"\n`;
+      });
+      resultadoCorreccion.textContent = mensaje;
+    }
+  } catch (error) {
+    resultadoCorreccion.textContent = 'No se pudo revisar. Revisa tu conexión.';
+  }
 });
