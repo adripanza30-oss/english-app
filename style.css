@@ -162,3 +162,27 @@ input {
   margin-bottom: 0.4rem;
   font-size: 0.9rem;
 }
+
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.filtro-btn {
+  font-size: 0.8rem;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid whitesmoke;
+  border-radius: 20px;
+  background: transparent;
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.filtro-btn.activo {
+  background: #3E7A5E;
+  color: white;
+}
