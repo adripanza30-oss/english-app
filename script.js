@@ -100,19 +100,36 @@ btnAudio.addEventListener('click', function() {
   speechSynthesis.speak(voz);
 });
 
-// ESCRIBIR FRASES
+// ESCRIBIR FRASES (con guardado en localStorage)
 const miFrase = document.getElementById('miFrase');
 const btnGuardar = document.getElementById('btnGuardar');
 const listaFrases = document.getElementById('listaFrases');
 
+// 1. Cargar las frases guardadas (o un array vacío si no hay nada)
+let frasesGuardadas = JSON.parse(localStorage.getItem('misFrases')) || [];
+
+// 2. Función para dibujar todas las frases en pantalla
+function mostrarFrases() {
+  listaFrases.innerHTML = ''; // limpia la lista antes de redibujar
+  frasesGuardadas.forEach(function(frase) {
+    const item = document.createElement('li');
+    item.textContent = frase;
+    listaFrases.appendChild(item);
+  });
+}
+
+// 3. Mostrar lo que ya estaba guardado, al cargar la página
+mostrarFrases();
+
+// 4. Al guardar una frase nueva
 btnGuardar.addEventListener('click', function() {
   const texto = miFrase.value.trim();
+  if (texto === '') return;
 
-  if (texto === '') return; // si está vacía, no hace nada
+  const fraseCompleta = `${palabra.textContent}: ${texto}`;
+  frasesGuardadas.push(fraseCompleta); // la agrega al array
+  localStorage.setItem('misFrases', JSON.stringify(frasesGuardadas)); // la guarda en el navegador
 
-  const item = document.createElement('li');
-  item.textContent = `${palabra.textContent}: ${texto}`;
-  listaFrases.appendChild(item);
-
+  mostrarFrases();   // redibuja la lista
   miFrase.value = ''; // limpia la cajita
 });
